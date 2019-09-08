@@ -833,7 +833,6 @@ when isMainModule:
         stderr.write "Please regenerate the deposit files by running makeDeposits again\n"
         quit 1
 
-
     var
       startTime = uint64(times.toUnix(times.getTime()) + config.genesisOffset)
       initialState = initialize_beacon_state_from_eth1(
