@@ -246,6 +246,8 @@ else:
     result = proc(api: DaemonAPI,
                   ticket: PubsubTicket,
                   msg: PubSubMessage): Future[bool] {.async.} =
+      debug "Incoming gossip bytes",
+        peer = msg.peer, len = msg.data.len, tops = msg.topics
       msgHandler SSZ.decode(msg.data, MsgType)
       return true
 
